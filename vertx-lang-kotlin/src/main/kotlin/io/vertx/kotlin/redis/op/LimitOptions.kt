@@ -1,21 +1,20 @@
 package io.vertx.kotlin.redis.op
 
 import io.vertx.redis.op.LimitOptions
+import kotlin.Deprecated
+import kotlin.Long
 
 /**
- * A function providing a DSL for building [io.vertx.redis.op.LimitOptions] objects.
+ * A function providing a DSL for building [LimitOptions] objects.
  *
  *
- * @param count 
- * @param offset 
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.redis.op.LimitOptions original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [LimitOptions original] using
+    Vert.x codegen.
  */
-fun LimitOptions(
-  count: Long? = null,
-  offset: Long? = null): LimitOptions = io.vertx.redis.op.LimitOptions().apply {
-
+fun limitOptionsOf(count: Long? = null, offset: Long? = null) = LimitOptions()
+.apply {
   if (count != null) {
     this.setCount(count)
   }
@@ -24,3 +23,25 @@ fun LimitOptions(
   }
 }
 
+/**
+ * A function providing a DSL for building [LimitOptions] objects.
+ *
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [LimitOptions original] using
+    Vert.x codegen.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("limitOptionsOf(count,offset)")
+)
+fun LimitOptions(count: Long? = null, offset: Long? = null) = LimitOptions()
+.apply {
+  if (count != null) {
+    this.setCount(count)
+  }
+  if (offset != null) {
+    this.setOffset(offset)
+  }
+}

@@ -1,23 +1,27 @@
 package io.vertx.kotlin.ext.consul
 
-import io.vertx.ext.consul.ServiceEntryList
 import io.vertx.ext.consul.ServiceEntry
+import io.vertx.ext.consul.ServiceEntryList
+import kotlin.Deprecated
+import kotlin.Long
 
 /**
- * A function providing a DSL for building [io.vertx.ext.consul.ServiceEntryList] objects.
+ * A function providing a DSL for building [ServiceEntryList] objects.
  *
- * Holds list of services, nodes and related checks
+ *  Holds list of services, nodes and related checks
  *
- * @param index  Set Consul index, a unique identifier representing the current state of the requested list of services
- * @param list  Set list of services
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.consul.ServiceEntryList original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [ServiceEntryList original] using
+    Vert.x codegen.
+ *
+ * @param index  Set Consul index, a unique identifier representing the current state of the
+    requested list of services
+ * @param list  Set list of services
  */
-fun ServiceEntryList(
-  index: Long? = null,
-  list: Iterable<io.vertx.ext.consul.ServiceEntry>? = null): ServiceEntryList = io.vertx.ext.consul.ServiceEntryList().apply {
-
+fun serviceEntryListOf(index: Long? = null, list: Iterable<ServiceEntry>? = null) =
+    ServiceEntryList()
+.apply {
   if (index != null) {
     this.setIndex(index)
   }
@@ -26,3 +30,30 @@ fun ServiceEntryList(
   }
 }
 
+/**
+ * A function providing a DSL for building [ServiceEntryList] objects.
+ *
+ *  Holds list of services, nodes and related checks
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [ServiceEntryList original] using
+    Vert.x codegen.
+ *
+ * @param index  Set Consul index, a unique identifier representing the current state of the
+    requested list of services
+ * @param list  Set list of services
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("serviceEntryListOf(index,list)")
+)
+fun ServiceEntryList(index: Long? = null, list: Iterable<ServiceEntry>? = null) = ServiceEntryList()
+.apply {
+  if (index != null) {
+    this.setIndex(index)
+  }
+  if (list != null) {
+    this.setList(list.toList())
+  }
+}

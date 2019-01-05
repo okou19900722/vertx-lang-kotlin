@@ -1,22 +1,22 @@
 package io.vertx.kotlin.ext.auth.htpasswd
 
 import io.vertx.ext.auth.htpasswd.HtpasswdAuthOptions
+import kotlin.Boolean
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.ext.auth.htpasswd.HtpasswdAuthOptions] objects.
+ * A function providing a DSL for building [HtpasswdAuthOptions] objects.
  *
- * Options configuring htpasswd authentication.
+ *  Options configuring htpasswd authentication.
  *
- * @param htpasswdFile 
- * @param plainTextEnabled 
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.auth.htpasswd.HtpasswdAuthOptions original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [HtpasswdAuthOptions original]
+    using Vert.x codegen.
  */
-fun HtpasswdAuthOptions(
-  htpasswdFile: String? = null,
-  plainTextEnabled: Boolean? = null): HtpasswdAuthOptions = io.vertx.ext.auth.htpasswd.HtpasswdAuthOptions().apply {
-
+fun htpasswdAuthOptionsOf(htpasswdFile: String? = null, plainTextEnabled: Boolean? = null) =
+    HtpasswdAuthOptions()
+.apply {
   if (htpasswdFile != null) {
     this.setHtpasswdFile(htpasswdFile)
   }
@@ -25,3 +25,27 @@ fun HtpasswdAuthOptions(
   }
 }
 
+/**
+ * A function providing a DSL for building [HtpasswdAuthOptions] objects.
+ *
+ *  Options configuring htpasswd authentication.
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [HtpasswdAuthOptions original]
+    using Vert.x codegen.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("htpasswdAuthOptionsOf(htpasswdFile,plainTextEnabled)")
+)
+fun HtpasswdAuthOptions(htpasswdFile: String? = null, plainTextEnabled: Boolean? = null) =
+    HtpasswdAuthOptions()
+.apply {
+  if (htpasswdFile != null) {
+    this.setHtpasswdFile(htpasswdFile)
+  }
+  if (plainTextEnabled != null) {
+    this.setPlainTextEnabled(plainTextEnabled)
+  }
+}

@@ -1,18 +1,36 @@
 package io.vertx.kotlin.ext.consul
 
 import io.vertx.ext.consul.TxnRequest
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.ext.consul.TxnRequest] objects.
+ * A function providing a DSL for building [TxnRequest] objects.
  *
- * Holds list of operations in transaction
+ *  Holds list of operations in transaction
  *
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.consul.TxnRequest original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [TxnRequest original] using Vert.x
+    codegen.
  */
-fun TxnRequest(
-): TxnRequest = io.vertx.ext.consul.TxnRequest().apply {
-
+fun txnRequestOf() = TxnRequest()
+.apply {
 }
 
+/**
+ * A function providing a DSL for building [TxnRequest] objects.
+ *
+ *  Holds list of operations in transaction
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [TxnRequest original] using Vert.x
+    codegen.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("txnRequestOf(operationsSize)")
+)
+fun TxnRequest() = TxnRequest()
+.apply {
+}

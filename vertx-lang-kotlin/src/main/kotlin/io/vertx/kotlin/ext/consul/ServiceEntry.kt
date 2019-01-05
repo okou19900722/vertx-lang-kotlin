@@ -1,27 +1,31 @@
 package io.vertx.kotlin.ext.consul
 
-import io.vertx.ext.consul.ServiceEntry
 import io.vertx.ext.consul.Check
 import io.vertx.ext.consul.Node
 import io.vertx.ext.consul.Service
+import io.vertx.ext.consul.ServiceEntry
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.ext.consul.ServiceEntry] objects.
+ * A function providing a DSL for building [ServiceEntry] objects.
  *
- * Holds properties of service, node and related checks
+ *  Holds properties of service, node and related checks
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [ServiceEntry original] using
+    Vert.x codegen.
  *
  * @param checks  Set list of checks
  * @param node  Set node
  * @param service  Set service
- *
- * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.consul.ServiceEntry original] using Vert.x codegen.
  */
-fun ServiceEntry(
-  checks: Iterable<io.vertx.ext.consul.Check>? = null,
-  node: io.vertx.ext.consul.Node? = null,
-  service: io.vertx.ext.consul.Service? = null): ServiceEntry = io.vertx.ext.consul.ServiceEntry().apply {
-
+fun serviceEntryOf(
+  checks: Iterable<Check>? = null,
+  node: Node? = null,
+  service: Service? = null
+) = ServiceEntry()
+.apply {
   if (checks != null) {
     this.setChecks(checks.toList())
   }
@@ -33,3 +37,37 @@ fun ServiceEntry(
   }
 }
 
+/**
+ * A function providing a DSL for building [ServiceEntry] objects.
+ *
+ *  Holds properties of service, node and related checks
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [ServiceEntry original] using
+    Vert.x codegen.
+ *
+ * @param checks  Set list of checks
+ * @param node  Set node
+ * @param service  Set service
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("serviceEntryOf(checks,node,service)")
+)
+fun ServiceEntry(
+  checks: Iterable<Check>? = null,
+  node: Node? = null,
+  service: Service? = null
+) = ServiceEntry()
+.apply {
+  if (checks != null) {
+    this.setChecks(checks.toList())
+  }
+  if (node != null) {
+    this.setNode(node)
+  }
+  if (service != null) {
+    this.setService(service)
+  }
+}

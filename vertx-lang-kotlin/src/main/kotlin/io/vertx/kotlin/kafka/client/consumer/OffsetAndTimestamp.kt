@@ -1,22 +1,24 @@
 package io.vertx.kotlin.kafka.client.consumer
 
 import io.vertx.kafka.client.consumer.OffsetAndTimestamp
+import kotlin.Deprecated
+import kotlin.Long
 
 /**
- * A function providing a DSL for building [io.vertx.kafka.client.consumer.OffsetAndTimestamp] objects.
+ * A function providing a DSL for building [OffsetAndTimestamp] objects.
  *
- * Represent information related to a Offset with timestamp information
+ *  Represent information related to a Offset with timestamp information
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [OffsetAndTimestamp original] using
+    Vert.x codegen.
  *
  * @param offset  Set the offset
  * @param timestamp  Set the timestamp
- *
- * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.kafka.client.consumer.OffsetAndTimestamp original] using Vert.x codegen.
  */
-fun OffsetAndTimestamp(
-  offset: Long? = null,
-  timestamp: Long? = null): OffsetAndTimestamp = io.vertx.kafka.client.consumer.OffsetAndTimestamp().apply {
-
+fun offsetAndTimestampOf(offset: Long? = null, timestamp: Long? = null) = OffsetAndTimestamp()
+.apply {
   if (offset != null) {
     this.setOffset(offset)
   }
@@ -25,3 +27,29 @@ fun OffsetAndTimestamp(
   }
 }
 
+/**
+ * A function providing a DSL for building [OffsetAndTimestamp] objects.
+ *
+ *  Represent information related to a Offset with timestamp information
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [OffsetAndTimestamp original] using
+    Vert.x codegen.
+ *
+ * @param offset  Set the offset
+ * @param timestamp  Set the timestamp
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("offsetAndTimestampOf(offset,timestamp)")
+)
+fun OffsetAndTimestamp(offset: Long? = null, timestamp: Long? = null) = OffsetAndTimestamp()
+.apply {
+  if (offset != null) {
+    this.setOffset(offset)
+  }
+  if (timestamp != null) {
+    this.setTimestamp(timestamp)
+  }
+}

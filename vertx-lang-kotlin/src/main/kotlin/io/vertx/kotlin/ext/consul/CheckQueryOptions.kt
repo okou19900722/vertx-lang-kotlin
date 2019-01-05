@@ -1,23 +1,26 @@
 package io.vertx.kotlin.ext.consul
 
-import io.vertx.ext.consul.CheckQueryOptions
 import io.vertx.ext.consul.BlockingQueryOptions
+import io.vertx.ext.consul.CheckQueryOptions
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.ext.consul.CheckQueryOptions] objects.
+ * A function providing a DSL for building [CheckQueryOptions] objects.
  *
- * Options used to requesting list of checks
+ *  Options used to requesting list of checks
  *
- * @param blockingOptions  Set options for blocking query
- * @param near  Set node name for sorting the list in ascending order based on the estimated round trip time from that node.
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.consul.CheckQueryOptions original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [CheckQueryOptions original] using
+    Vert.x codegen.
+ *
+ * @param blockingOptions  Set options for blocking query
+ * @param near  Set node name for sorting the list in ascending order based on the estimated round
+    trip time from that node.
  */
-fun CheckQueryOptions(
-  blockingOptions: io.vertx.ext.consul.BlockingQueryOptions? = null,
-  near: String? = null): CheckQueryOptions = io.vertx.ext.consul.CheckQueryOptions().apply {
-
+fun checkQueryOptionsOf(blockingOptions: BlockingQueryOptions? = null, near: String? = null) =
+    CheckQueryOptions()
+.apply {
   if (blockingOptions != null) {
     this.setBlockingOptions(blockingOptions)
   }
@@ -26,3 +29,31 @@ fun CheckQueryOptions(
   }
 }
 
+/**
+ * A function providing a DSL for building [CheckQueryOptions] objects.
+ *
+ *  Options used to requesting list of checks
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [CheckQueryOptions original] using
+    Vert.x codegen.
+ *
+ * @param blockingOptions  Set options for blocking query
+ * @param near  Set node name for sorting the list in ascending order based on the estimated round
+    trip time from that node.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("checkQueryOptionsOf(blockingOptions,near)")
+)
+fun CheckQueryOptions(blockingOptions: BlockingQueryOptions? = null, near: String? = null) =
+    CheckQueryOptions()
+.apply {
+  if (blockingOptions != null) {
+    this.setBlockingOptions(blockingOptions)
+  }
+  if (near != null) {
+    this.setNear(near)
+  }
+}

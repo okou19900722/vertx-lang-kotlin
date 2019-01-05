@@ -2,22 +2,24 @@ package io.vertx.kotlin.ext.bridge
 
 import io.vertx.ext.bridge.BridgeOptions
 import io.vertx.ext.bridge.PermittedOptions
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.ext.bridge.BridgeOptions] objects.
+ * A function providing a DSL for building [BridgeOptions] objects.
  *
- * Specify the event bus bridge options.
+ *  Specify the event bus bridge options.
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [BridgeOptions original] using
+    Vert.x codegen.
  *
  * @param inboundPermitteds  Sets the list of inbound permitted options.
  * @param outboundPermitteds  Sets the list of outbound permitted options.
- *
- * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.bridge.BridgeOptions original] using Vert.x codegen.
  */
-fun BridgeOptions(
-  inboundPermitteds: Iterable<io.vertx.ext.bridge.PermittedOptions>? = null,
-  outboundPermitteds: Iterable<io.vertx.ext.bridge.PermittedOptions>? = null): BridgeOptions = io.vertx.ext.bridge.BridgeOptions().apply {
-
+fun bridgeOptionsOf(inboundPermitteds: Iterable<PermittedOptions>? = null, outboundPermitteds:
+    Iterable<PermittedOptions>? = null) = BridgeOptions()
+.apply {
   if (inboundPermitteds != null) {
     this.setInboundPermitteds(inboundPermitteds.toList())
   }
@@ -26,3 +28,30 @@ fun BridgeOptions(
   }
 }
 
+/**
+ * A function providing a DSL for building [BridgeOptions] objects.
+ *
+ *  Specify the event bus bridge options.
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [BridgeOptions original] using
+    Vert.x codegen.
+ *
+ * @param inboundPermitteds  Sets the list of inbound permitted options.
+ * @param outboundPermitteds  Sets the list of outbound permitted options.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("bridgeOptionsOf(inboundPermitteds,outboundPermitteds)")
+)
+fun BridgeOptions(inboundPermitteds: Iterable<PermittedOptions>? = null, outboundPermitteds:
+    Iterable<PermittedOptions>? = null) = BridgeOptions()
+.apply {
+  if (inboundPermitteds != null) {
+    this.setInboundPermitteds(inboundPermitteds.toList())
+  }
+  if (outboundPermitteds != null) {
+    this.setOutboundPermitteds(outboundPermitteds.toList())
+  }
+}

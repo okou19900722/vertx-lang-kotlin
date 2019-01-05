@@ -1,23 +1,51 @@
 package io.vertx.kotlin.core.metrics
 
 import io.vertx.core.metrics.MetricsOptions
+import kotlin.Boolean
+import kotlin.Deprecated
 
 /**
- * A function providing a DSL for building [io.vertx.core.metrics.MetricsOptions] objects.
+ * A function providing a DSL for building [MetricsOptions] objects.
  *
- * Vert.x metrics base configuration, this class can be extended by provider implementations to configure
- * those specific implementations.
+ *  Vert.x metrics base configuration, this class can be extended by provider implementations to
+    configure
+ *  those specific implementations.
  *
- * @param enabled  Set whether metrics will be enabled on the Vert.x instance.
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.core.metrics.MetricsOptions original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [MetricsOptions original] using
+    Vert.x codegen.
+ *
+ * @param enabled  Set whether metrics will be enabled on the Vert.x instance.
  */
-fun MetricsOptions(
-  enabled: Boolean? = null): MetricsOptions = io.vertx.core.metrics.MetricsOptions().apply {
-
+fun metricsOptionsOf(enabled: Boolean? = null) = MetricsOptions()
+.apply {
   if (enabled != null) {
     this.setEnabled(enabled)
   }
 }
 
+/**
+ * A function providing a DSL for building [MetricsOptions] objects.
+ *
+ *  Vert.x metrics base configuration, this class can be extended by provider implementations to
+    configure
+ *  those specific implementations.
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [MetricsOptions original] using
+    Vert.x codegen.
+ *
+ * @param enabled  Set whether metrics will be enabled on the Vert.x instance.
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("metricsOptionsOf(enabled)")
+)
+fun MetricsOptions(enabled: Boolean? = null) = MetricsOptions()
+.apply {
+  if (enabled != null) {
+    this.setEnabled(enabled)
+  }
+}

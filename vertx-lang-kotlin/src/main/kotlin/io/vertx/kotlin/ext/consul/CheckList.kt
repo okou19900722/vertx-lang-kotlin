@@ -1,23 +1,26 @@
 package io.vertx.kotlin.ext.consul
 
-import io.vertx.ext.consul.CheckList
 import io.vertx.ext.consul.Check
+import io.vertx.ext.consul.CheckList
+import kotlin.Deprecated
+import kotlin.Long
 
 /**
- * A function providing a DSL for building [io.vertx.ext.consul.CheckList] objects.
+ * A function providing a DSL for building [CheckList] objects.
  *
- * Holds result of checks query
+ *  Holds result of checks query
  *
- * @param index  Set Consul index, a unique identifier representing the current state of the requested list of checks
- * @param list  Set list of checks
  *
  * <p/>
- * NOTE: This function has been automatically generated from the [io.vertx.ext.consul.CheckList original] using Vert.x codegen.
+ * NOTE: This function has been automatically generated from the [CheckList original] using Vert.x
+    codegen.
+ *
+ * @param index  Set Consul index, a unique identifier representing the current state of the
+    requested list of checks
+ * @param list  Set list of checks
  */
-fun CheckList(
-  index: Long? = null,
-  list: Iterable<io.vertx.ext.consul.Check>? = null): CheckList = io.vertx.ext.consul.CheckList().apply {
-
+fun checkListOf(index: Long? = null, list: Iterable<Check>? = null) = CheckList()
+.apply {
   if (index != null) {
     this.setIndex(index)
   }
@@ -26,3 +29,30 @@ fun CheckList(
   }
 }
 
+/**
+ * A function providing a DSL for building [CheckList] objects.
+ *
+ *  Holds result of checks query
+ *
+ *
+ * <p/>
+ * NOTE: This function has been automatically generated from the [CheckList original] using Vert.x
+    codegen.
+ *
+ * @param index  Set Consul index, a unique identifier representing the current state of the
+    requested list of checks
+ * @param list  Set list of checks
+ */
+@Deprecated(
+    "This function will be removed in a future version",
+    ReplaceWith("checkListOf(index,list)")
+)
+fun CheckList(index: Long? = null, list: Iterable<Check>? = null) = CheckList()
+.apply {
+  if (index != null) {
+    this.setIndex(index)
+  }
+  if (list != null) {
+    this.setList(list.toList())
+  }
+}

@@ -34,6 +34,12 @@
       <version>3.6.3-SNAPSHOT</version>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>com.squareup</groupId>
+      <artifactId>kotlinpoet</artifactId>
+      <version>1.0.1</version>
+      <optional>true</optional>
+    </dependency>
 
 
     <dependency>
